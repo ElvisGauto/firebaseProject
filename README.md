@@ -28,6 +28,12 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Libreries
 
-In this app, we use libreries
+## In this app, we use libreries
 
     ### npm i ng2-validation --save
+
+## For Data Table   
+
+    ### npm i @angular/cdk
+    ### ng add @angular/material@latest
+    ### npm install angular7-data-table --save
