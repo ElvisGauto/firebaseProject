@@ -15,7 +15,7 @@
 >
     <data-table-column
         [property]="'title'"
-        [header]="Title"
+        [header]="'Title'"
         [sortable]="true"
         [resizable]="true"
     >
@@ -24,7 +24,7 @@
 
     <data-table-column
         [property]="'price'"
-        [header]="Price"
+        [header]="'Price'"
         [sortable]="true"
         [resizable]="true"
     >
@@ -38,6 +38,14 @@
     >
         <ng-template #dataTableCell let-item="item">
             <a [routerLink]="['/admin/products/', item.$key]">Edit</a>
+        </ng-template>
+    </data-table-column>
+
+    <data-table-column
+        [property]="'$key'"
+    >
+        <ng-template #dataTableCell let-item="item">
+            <a routerLink="/admin/products" (click)="delete(item.$key)">Delete</a>
         </ng-template>
     </data-table-column>
 </data-table>

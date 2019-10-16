@@ -3,6 +3,7 @@ import { ProductService } from 'src/app/services/product.service';
 import { Subscription } from 'rxjs';
 import { Product } from 'src/app/models/app-products.interface';
 import { DataTableResource } from 'angular7-data-table';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-products',
@@ -12,16 +13,25 @@ import { DataTableResource } from 'angular7-data-table';
 export class AdminProductsComponent implements OnInit, OnDestroy {
 
   products: Product[];
-  filteredProducts: any[];
   subscription: Subscription;
   tableResourse: DataTableResource<Product>;
   items: Product[] = [];
   itemCount: number;
 
-  constructor(private productServices: ProductService) { 
+  id;
+  product = {};
+
+  constructor(
+    private productServices: ProductService, 
+    private route: ActivatedRoute,
+    private router: Router) { 
+
+    this.id = this.route.snapshot.paramMap.get('id');
+    if(this.id) this.productServices.get(this.id).take(1).subscribe(p => this.product = p);
+
     this.subscription = this.productServices.getAll()
       .subscribe(products => {
-        this.filteredProducts =  this.products = products;
+        this.products = products;
         this.initializeTable(products);
       });
   }
@@ -42,9 +52,18 @@ export class AdminProductsComponent implements OnInit, OnDestroy {
   }
 
   filter(query: string) {
-    this.filteredProducts = (query) ?
+    let filteredProducts = (query) ?
       this.products.filter(p => p.title.toLowerCase().includes(query.toLowerCase())) : 
       this.products; 
+     
+    this.initializeTable(filteredProducts);  
+  }
+
+  delete(item) {
+    if (!confirm('Are you sure want to delete this product?')) return;
+
+    this.productServices.delete(item); 
+    this.router.navigate(['/admin/products']); 
   }
 
   ngOnDestroy() {
