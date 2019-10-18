@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
+import { Observable } from 'rxjs';
+import { Product } from '../models/app-products.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +14,7 @@ export class ProductService {
     return this.db.list('/products').push(product);
   }
 
-  getAll() {
+  getAll(): Observable<Product[]> {
     return this.db.list('/products');
   }
 

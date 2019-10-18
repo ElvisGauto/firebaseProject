@@ -23,15 +23,12 @@ export class AdminProductsComponent implements OnInit, OnDestroy {
 
   constructor(
     private productServices: ProductService, 
-    private route: ActivatedRoute,
     private router: Router) { 
-
-    this.id = this.route.snapshot.paramMap.get('id');
-    if(this.id) this.productServices.get(this.id).take(1).subscribe(p => this.product = p);
 
     this.subscription = this.productServices.getAll()
       .subscribe(products => {
         this.products = products;
+        console.log(products);
         this.initializeTable(products);
       });
   }
