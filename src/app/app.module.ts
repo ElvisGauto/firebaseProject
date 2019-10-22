@@ -30,6 +30,10 @@ import { CategoryService } from './services/category.service';
 import { from } from 'rxjs';
 import { ProductService } from './services/product.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ProductFilterComponent } from './products/product-filter/product-filter.component';
+import { ProductCardComponent } from './products/product-card/product-card.component';
+import { CartService } from './services/shopping-cart.service';
+import { ProductQuantityComponent } from './product-quantity/product-quantity.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +48,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AdminProductsComponent,
     AdminOrdersComponent,
     LoginComponent,
-    ProductFormComponent
+    ProductFormComponent,
+    ProductFilterComponent,
+    ProductCardComponent,
+    ProductQuantityComponent
   ],
   imports: [
     BrowserModule,
@@ -64,7 +71,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     UserService,
     AdminAuthGuardService,
     CategoryService,
-    ProductService
+    ProductService,
+    CartService
   ],
   bootstrap: [AppComponent]
 })

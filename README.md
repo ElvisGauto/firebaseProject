@@ -37,3 +37,11 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
     ### npm i @angular/cdk
     ### ng add @angular/material@latest
     ### npm install angular7-data-table --save
+
+## Error in 'Shopping-cart.service', method addToCart
+
+    use pipe in the observable item$, before the take.
+
+## Some classes of Bootstrap
+
+    no-gutters = remove margin left and right by default of carts 
