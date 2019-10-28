@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Product } from 'src/app/models/app-products.interface';
 import { ShoppingCartComponent } from 'src/app/shopping-cart/shopping-cart.component';
 import { CartService } from 'src/app/services/shopping-cart.service';
-import { ShoppingCart } from 'src/app/models/shopping-cart';
+import { ShoppingCart } from 'src/app/shopping-cart/shopping-cartM/shopping-cart';
 
 @Component({
   selector: 'product-card',
@@ -18,6 +18,6 @@ export class ProductCardComponent {
   constructor(private cartService: CartService) { }
 
   addToCart() {
-    this.cartService.addToCart(this.product);
+    this.cartService.updateCart(this.product, +1);
   }
 }

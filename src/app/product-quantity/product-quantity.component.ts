@@ -14,10 +14,10 @@ export class ProductQuantityComponent  {
   constructor(private cartService: CartService) { }
 
   addToCart() {
-    this.cartService.addToCart(this.product);
+    this.cartService.updateCart(this.product, +1);
   }
 
   removeCart() {
-    this.cartService.removeCart(this.product);
+    this.cartService.updateCart(this.product, -1);
   }
 }

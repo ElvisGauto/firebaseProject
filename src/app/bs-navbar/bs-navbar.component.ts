@@ -3,7 +3,7 @@ import { AuthService } from '../services/auth.service';
 import { AppUser } from '../models/app-user.interface';
 import { CartService } from '../services/shopping-cart.service';
 import { Observable } from 'rxjs';
-import { ShoppingCart } from '../models/shopping-cart';
+import { ShoppingCart } from '../shopping-cart/shopping-cartM/shopping-cart';
 
 @Component({
   selector: 'bs-navbar',

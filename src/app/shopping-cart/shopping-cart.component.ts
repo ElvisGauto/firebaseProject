@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { CartService } from '../services/shopping-cart.service';
+import { ShoppingCart } from './shopping-cartM/shopping-cart';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -15,4 +16,7 @@ export class ShoppingCartComponent implements OnInit {
     this.cart$ = await this.cartService.getCart();
   }
 
+  clearCart() {
+    this.cartService.clearCart();
+  }
 }

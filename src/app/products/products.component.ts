@@ -6,57 +6,52 @@ import { ActivatedRoute, RouteConfigLoadEnd } from '@angular/router';
 
 import 'rxjs/add/operator/switchMap'
 import { CartService } from '../services/shopping-cart.service';
-import { Subscription } from 'rxjs';
+import { Subscription, Observable } from 'rxjs';
+import { ShoppingCart } from '../shopping-cart/shopping-cartM/shopping-cart';
  
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.scss']
 })
-export class ProductsComponent implements OnInit, OnDestroy {
+export class ProductsComponent implements OnInit {
   products: Product[] = [];
   filteredProducts: Product[] = [];
   categories$;
   category: string;
-  cart: any;
-  subscription: Subscription
+  cart$: Observable<ShoppingCart>;
  
   constructor(
-    route: ActivatedRoute,
-    productService: ProductService, 
-    categoryService: CategoryService,
+    private route: ActivatedRoute,
+    private productService: ProductService, 
     private cartService: CartService
     ) { 
-
-    productService
-      .getAll()
-      .switchMap(product => {
-        this.products = product
-
-        return route.queryParamMap;
-      })
-
-      .subscribe(params => {
-        this.category = params.get('category');
-        
-        this.filteredProducts = (this.category) ?
-          this.products.filter( p => p.category === this.category) : 
-          this.products;
-      })
-
-      
-      this.categories$ = categoryService.getCategories();
     
   }
 
   async ngOnInit() {
-    this.subscription = (await this.cartService.getCart())
-      .subscribe(cart => this.cart = cart);
+    this.cart$ = await this.cartService.getCart();  
+    this.populateProducts();
   }
 
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
+  private populateProducts() {
+    this.productService
+    .getAll()
+    .switchMap(product => {
+      this.products = product
+      return this.route.queryParamMap;
+    })
+
+    .subscribe(params => {
+      this.category = params.get('category');
+      this.applyFilter();
+    });
   }
- 
+
+  private applyFilter() {
+    this.filteredProducts = (this.category) ?
+    this.products.filter( p => p.category === this.category) : 
+    this.products;
+  }
 }
   
