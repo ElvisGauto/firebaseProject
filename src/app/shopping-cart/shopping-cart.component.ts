@@ -9,6 +9,7 @@ import { ShoppingCart } from './shopping-cartM/shopping-cart';
 })
 export class ShoppingCartComponent implements OnInit {
   cart$;
+  sum = 0;
 
   constructor(private cartService: CartService) { }
 
