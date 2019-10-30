@@ -41,7 +41,9 @@ export class CartService {
     let item$ = this.db.object('/shopping-carts/'+cartId+'/items/'+product.$key);
     item$.pipe(take(1)).subscribe( item => {
       item$.update({ 
-        product: product, 
+        title: product.title,
+        imageUrl: product.imageUrl,
+        price: product.price, 
         quantity: (item.quantity || 0) + change });
     });
   }

@@ -1,17 +1,16 @@
 import { Product } from 'src/app/models/app-products.interface';
 
 export class ShoppingCartItem {
-    // $key: string;
-    // title: string;
-    // imageUrl: string;
-    // price: number;
-    // quantity: number;
+    $key: string;
+    title: string;
+    imageUrl: string;
+    price: number;
+    quantity: number;
 
     // constructor(init?: Partial<ShoppingCartItem>) {
     //     Object.assign(this, init);
     // }
-    constructor(public product: Product, public quantity: number) {}
+    // constructor(public product: Product, quantity) {}
 
-
-    get totalPrice() { return this.product.price * this.quantity; }
+    get totalPrice() { return this.price * this.quantity; }
 }

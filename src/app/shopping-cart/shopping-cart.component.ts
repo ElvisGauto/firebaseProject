@@ -9,10 +9,6 @@ import { ShoppingCart } from './shopping-cartM/shopping-cart';
 })
 export class ShoppingCartComponent implements OnInit {
   cart$;
-  sum = 0;
-  showQuantity = true;
-
-  @ViewChild('quantity', {static: false}) quantity:ElementRef;
 
   constructor(private cartService: CartService) { }
 
@@ -22,16 +18,5 @@ export class ShoppingCartComponent implements OnInit {
 
   clearCart() {
     this.cartService.clearCart();
-  }
-
-  editQuantity(i) {
-    // this.showQuantity = false;
-    console.log(i);
-  }
-
-  saveQuantity() {
-    this.showQuantity = true;
-    const valueInput = this.quantity.nativeElement.value;
-    console.log(valueInput);
   }
 }

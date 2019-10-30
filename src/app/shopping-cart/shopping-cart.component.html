@@ -17,15 +17,17 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let item of cart.items" (click)="editQuantity(this)">
+            <tr *ngFor="let item of cart.items">
                 <td>
-                    <div [style.backgroundImage]="'url(' + item.product.imageUrl + ')'" class="thumbnail"></div>
+                    <div [style.backgroundImage]="'url(' + item.imageUrl + ')'" class="thumbnail"></div>
                 </td>
                 <td>
-                   {{ item.product.title }}
+                   {{ item.title }}
                 </td>
                 <td class="text-center">
-                    {{ item.quantity }}
+                    <!-- {{ item.quantity }} -->
+                    <product-quantity [product]="item" [shopping-cart]="cart">
+                    </product-quantity>
                 </td>
                 <td class="text-right">
                     {{ item.totalPrice | currency:'USD':true}}

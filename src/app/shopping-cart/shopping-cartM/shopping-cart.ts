@@ -9,8 +9,12 @@ export class ShoppingCart {
 
         for (let productId in itemsMap) {
             let item = itemsMap[productId];
+            let x = new ShoppingCartItem();
+            Object.assign(x, item)
+            x.$key = productId;
+            this.items.push(x);
             // this.items.push(new ShoppingCartItem({ ...item, $key: productId}));
-            this.items.push(new ShoppingCartItem(item.product, item.quantity));
+            // this.items.push(new ShoppingCartItem(item.product, item.quantity));
         }
     }
 
@@ -18,7 +22,8 @@ export class ShoppingCart {
     //     this.items = items || {};
     // }
 
-    getQuantity(product: Product) {
+    getQuantity(product: Product): any {
+        console.log('product: ' ,product)
         let item = this.itemsMap[product.$key];
         return item ? item.quantity : 0;
     }
