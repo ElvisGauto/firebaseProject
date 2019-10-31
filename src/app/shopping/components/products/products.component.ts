@@ -4,10 +4,10 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 
-import { Product } from '../../models/app-products.interface';
-import { ProductService } from '../../services/product.service';
-import { CartService } from '../../services/shopping-cart.service';
-import { ShoppingCart } from '../../../shopping-cart/shopping-cartM/shopping-cart';
+import { Product } from '../../../shared/models/app-products.interface';
+import { ProductService } from '../../../shared/services/product.service';
+import { CartService } from '../../../shared/services/shopping-cart.service';
+import { ShoppingCart } from '../../../shopping/components/shopping-cart/shopping-cartM/shopping-cart';
 
  
 @Component({

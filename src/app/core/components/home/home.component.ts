@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from '../shared/services/product.service';
-import { AppUser } from '../shared/models/app-user.interface';
-import { Product } from '../shared/models/app-products.interface';
+
+import { ProductService } from '../../../shared/services/product.service';
 
 @Component({
   selector: 'app-home',

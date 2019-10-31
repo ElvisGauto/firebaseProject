@@ -1,8 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { AngularFireAuth } from 'angularfire2/auth';
-import * as firebase from 'firebase';
-import { AngularFireModule } from 'angularfire2';
-import { AuthService } from '../shared/services/auth.service';
+import { Component } from '@angular/core';
+
+import { AuthService } from '../../../shared/services/auth.service';
 
 @Component({
   selector: 'app-login',

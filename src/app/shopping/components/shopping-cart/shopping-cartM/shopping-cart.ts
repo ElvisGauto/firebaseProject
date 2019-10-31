@@ -1,5 +1,5 @@
 import { ShoppingCartItem } from './shopping-cart-item';
-import { Product } from '../../shared/models/app-products.interface';
+import { Product } from '../../../../shared/models/app-products.interface';
 
 export class ShoppingCart {
     items: ShoppingCartItem[] = [];
