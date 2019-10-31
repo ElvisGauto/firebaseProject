@@ -3,7 +3,7 @@ import { AngularFireDatabase, FirebaseObjectObservable } from 'angularfire2/data
 import { Product } from '../models/app-products.interface';
 
 import { take } from 'rxjs/operators';
-import { ShoppingCart } from '../shopping-cart/shopping-cartM/shopping-cart';
+import { ShoppingCart } from '../../shopping-cart/shopping-cartM/shopping-cart';
 
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs';

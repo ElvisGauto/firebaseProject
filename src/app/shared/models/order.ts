@@ -1,4 +1,4 @@
-import { ShoppingCart } from '../shopping-cart/shopping-cartM/shopping-cart';
+import { ShoppingCart } from '../../shopping-cart/shopping-cartM/shopping-cart';
 
 export class Order {
     datePlaced: number;

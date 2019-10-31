@@ -1,4 +1,4 @@
-import { Product } from 'src/app/models/app-products.interface';
+import { Product } from 'src/app/shared/models/app-products.interface';
 
 export class ShoppingCartItem {
     $key: string;
