@@ -15,29 +15,17 @@ import { ProductFormComponent } from './admin/components/product-form/product-fo
 
 const routes: Routes = [
   { path: '', component: ProductsComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'products', component: ProductsComponent },
   { path: 'shopping-cart', component: ShoppingCartComponent },
-  { path: 'login', component: LoginComponent },
 
   { path: 'check-out', component: CheckOutComponent, canActivate: [AuthGuardService] },
   { path: 'order-success/:id', component: OrderSuccessComponent, canActivate: [AuthGuardService]  },
   { path: 'my/orders', component: MyOrdersComponent, canActivate: [AuthGuardService]  },
   
-  { path: 'admin/products/new', 
-  component: ProductFormComponent, 
-  canActivate: [AuthGuardService, AdminAuthGuardService] 
-  },
-  { path: 'admin/products/:id', 
-  component: ProductFormComponent, 
-  canActivate: [AuthGuardService, AdminAuthGuardService] 
-  }, 
-  { path: 'admin/products', 
-    component: AdminProductsComponent, 
-    canActivate: [AuthGuardService, AdminAuthGuardService] 
-  },
-  { path: 'admin/orders', 
-    component: AdminOrdersComponent, 
-    canActivate: [AuthGuardService, AdminAuthGuardService]  
+  { path: 'admin', 
+    loadChildren: './admin/admin.module#AdminModule', 
+    canActivate: [AuthGuardService, AdminAuthGuardService]
   }
 ];
 
