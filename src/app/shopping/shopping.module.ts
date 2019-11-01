@@ -27,9 +27,7 @@ import { ShopRoutingModule } from './Shop-routing.module';
     ShippingFormComponent
   ],
   imports: [
-    CommonModule,
     SharedModule,
-    FormsModule,
     ShopRoutingModule
   ]
 })

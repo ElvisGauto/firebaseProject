@@ -45,3 +45,21 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## Some classes of Bootstrap
 
     no-gutters = remove margin left and right by default of carts 
+
+## Add Icons
+
+    npm i font-awesome --save
+
+    For use some icons, remove "s" or "r" of style class. For example
+
+    use :-
+
+    -- <i class="fa fa-hand-scissors-o" aria-hidden="true"></i>
+
+    Instead of 
+
+    -- <i class="far(fas) fa-hand-scissors"></i>
+
+## Hosting
+
+   -URL: https://oshop2-f0917.firebaseapp.com

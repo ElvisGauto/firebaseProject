@@ -6,6 +6,7 @@ import { BsNavbarComponent } from './components/bs-navbar/bs-navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { CoreRoutingModule } from './core-routing.module';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -14,8 +15,7 @@ import { CoreRoutingModule } from './core-routing.module';
     LoginComponent,
   ],
   imports: [
-    CommonModule,
-    NgbModule,
+    SharedModule,
     CoreRoutingModule
   ],
   exports: [
